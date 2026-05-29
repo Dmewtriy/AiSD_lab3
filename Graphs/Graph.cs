@@ -14,9 +14,9 @@ namespace Graphs
 
         private void RunBenchmark()
         {
-            int step = 1000;
+            int step = 2000;
             int size = step;
-            int count = 20;
+            int count = 10;
 
             List<double> xData = new List<double>();
             List<double> selectionTimes = new List<double>();
@@ -42,11 +42,11 @@ namespace Graphs
                 insertionTimes.Add(alg.InsertionSort().Item2);
             }
 
-            DrawLine(xData, selectionTimes, "Selection Sort");
-            DrawLine(xData, insertionTimes, "Insertion Sort");
-            DrawLine(xData, quickTimes, "Quick Sort");
-            DrawLine(xData, heapTimes, "Heap Sort");
-            DrawLine(xData, radixTimes, "Radix Sort");
+            DrawLine(xData, selectionTimes, "Метод выбора");
+            DrawLine(xData, insertionTimes, "Метод вставок");
+            DrawLine(xData, quickTimes, "Быстрая сортировка");
+            DrawLine(xData, heapTimes, "Пирамидальная сортировка");
+            DrawLine(xData, radixTimes, "Поразрядная сортировка");
         }
 
         private void DrawLine(List<double> xData, List<double> yData, string label)
