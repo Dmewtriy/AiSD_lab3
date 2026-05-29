@@ -14,7 +14,9 @@ namespace Graphs
 
         private void RunBenchmark()
         {
-            int[] sizes = { 1000, 5000, 10000, 20000, 40000 };
+            int step = 1000;
+            int size = step;
+            int count = 20;
 
             List<double> xData = new List<double>();
             List<double> selectionTimes = new List<double>();
@@ -25,8 +27,9 @@ namespace Graphs
 
             formsPlot1.Plot.Clear();
 
-            foreach (int size in sizes)
+            for (int i = 0; i < count; i++)
             {
+                size = (i + 1) * step;
                 xData.Add(size);
 
                 int[] baseArray = ArrayGenerator.GenerateRandomSequence(size);
@@ -39,9 +42,8 @@ namespace Graphs
                 insertionTimes.Add(alg.InsertionSort().Item2);
             }
 
-            //DrawLine(xData, selectionTimes, "Selection Sort");
-            //DrawLine(xData, insertionTimes, "Insertion Sort");
-
+            DrawLine(xData, selectionTimes, "Selection Sort");
+            DrawLine(xData, insertionTimes, "Insertion Sort");
             DrawLine(xData, quickTimes, "Quick Sort");
             DrawLine(xData, heapTimes, "Heap Sort");
             DrawLine(xData, radixTimes, "Radix Sort");

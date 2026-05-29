@@ -10,7 +10,7 @@ public class SortAlgorithms
         _array = (int[])array.Clone();
     }
 
-    private (int[] SortedArray, long TimeoInMs) Measure(string name, Func<int[], int[]> algorithm)
+    private (int[] SortedArray, double TimeoInMs) Measure(string name, Func<int[], int[]> algorithm)
     {
         int[] copy = (int[])_array.Clone();
 
@@ -23,11 +23,11 @@ public class SortAlgorithms
 
         Console.WriteLine($"{name}: {stopwatch.ElapsedMilliseconds} мс");
 
-        return (result, stopwatch.ElapsedMilliseconds);
+        return (result, stopwatch.Elapsed.TotalMilliseconds);
     }
 
 
-    public (int[] SortedArray, long TimeoInMs) SelectionSort()
+    public (int[] SortedArray, double TimeoInMs) SelectionSort()
         => Measure("Selection Sort", SelectionSort);
 
     private int[] SelectionSort(int[] arr)
@@ -48,7 +48,7 @@ public class SortAlgorithms
         return arr;
     }
 
-    public (int[] SortedArray, long TimeoInMs) InsertionSort()
+    public (int[] SortedArray, double TimeoInMs) InsertionSort()
         => Measure("Insertion Sort", InsertionSort);
 
     private int[] InsertionSort(int[] array)
@@ -71,7 +71,7 @@ public class SortAlgorithms
         return array;
     }
 
-    public (int[] SortedArray, long TimeoInMs) QuickSort()
+    public (int[] SortedArray, double TimeoInMs) QuickSort()
         => Measure("Quick Sort", QuickSort);
 
 
@@ -109,7 +109,7 @@ public class SortAlgorithms
     }
 
 
-    public (int[] SortedArray, long TimeoInMs) HeapSort()
+    public (int[] SortedArray, double TimeoInMs) HeapSort()
         => Measure("Heap Sort", HeapSort);
 
     private int[] HeapSort(int[] array)
@@ -160,7 +160,7 @@ public class SortAlgorithms
     }
 
 
-    public (int[] SortedArray, long TimeoInMs) RadixSort()
+    public (int[] SortedArray, double TimeoInMs) RadixSort()
         => Measure("Radix Sort", RadixSortInternal);
 
     private int[] RadixSortInternal(int[] arr)
