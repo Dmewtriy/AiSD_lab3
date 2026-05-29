@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Graphs/Graphs.csproj" Id="b834ad6c-1c91-4d0a-b2c7-00125840fb3f" />
   <Project Path="lab3/lab3.csproj" />
 </Solution>
